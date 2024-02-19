@@ -1,0 +1,105 @@
+* {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.rounded-button {
+    display: inline-block;
+    padding: 15px 300px;
+    background-color: #d7e1eb; 
+    color: #0a0909;
+    text-decoration: none;
+    border-radius: 20px; 
+    transition: background-color 0.3s ease;
+    margin: 20px;
+}
+
+.rounded-button:hover {
+    background-color: #0056b3;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #007bff, #000000);
+    justify-content: center;
+    min-height: 100vh;
+}
+h1, p, ul, h2{
+    text-align: center;
+}
+h1
+{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+}
+h2 {
+    margin-bottom: 20px; 
+    margin-top: 50px; 
+}
+
+ul {
+    margin-top: 20px; 
+    padding-left: 0; 
+}
+.search-container {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+.search-container input[type="text"] {
+    padding: 15px; 
+    width: 400px; 
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* Style for the button */
+.search-container button {
+    padding: 15px 20px; /* Increase padding to make the button bigger */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}
+
+/* Change button color on hover */
+.search-container button:hover {
+    background-color: #0056b3; /* Adjust the hover color as needed */
+}
+div{
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+.home-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #d7e1eb; 
+    color: #0a0909;
+    text-decoration: none;
+    border-radius: 20px; 
+    transition: background-color 0.3s ease;
+    margin: 20px;
+    bottom:100px;
+    right:20px;
+    
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
