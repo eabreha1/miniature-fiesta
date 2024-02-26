@@ -9,50 +9,21 @@
     display: inline-block;
     padding: 15px 300px;
     background-color: #d7e1eb; 
-    color: #0a0909;
+    color: #0a0900;
     text-decoration: none;
     border-radius: 20px; 
     transition: background-color 0.3s ease;
     margin: 20px;
 }
 .rounded-button:hover {
-    background-color: #0056b3;
-}
-
-.search-container {
-    display: flex; 
-    justify-content: center; 
-    margin-top: 20px;
-}
-
-.search-container input[type="text"] {
-    padding: 15px; 
-    width: 400px; 
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-}
-/* Style for the button */
-.search-container button {
-    padding: 15px 20px; /* Increase padding to make the button bigger */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px; /* Adjust font size */
-    transition: background-color 0.3s ease; /* Add transition for smooth color change */
-}
-
-/* Change button color on hover */
-.search-container button:hover {
-    background-color: #0056b3; /* Adjust the hover color as needed */
+    background-color: #ff5722;
+    color:#fff
 }
 div{
     margin-bottom: 20px;
     margin-top: 100px;
 }
-.home-button {
+.small-button {
     display: inline-block;
     padding: 15px 30px;
     background-color: #d7e1eb; 
@@ -66,8 +37,8 @@ div{
     
 }
 
-.home-button:hover {
-    background-color: #0056b3;
+.small-button:hover {
+    background-color: #ff5722;
 }
 /* Global styles */
 body {
