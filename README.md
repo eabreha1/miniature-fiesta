@@ -19,5 +19,6 @@ feature that you would like to see as apart of the code create an issue related 
 see, or what you have done. See the related Contributions file (WIP) for specific details on the structure
 of issues and what goes into a contribution for this project.
 
-# Where to see latest releases
+# Link to the website
+https://nba-predictions.github.io/miniature-fiesta/
 
