@@ -1,246 +1,112 @@
-* {
-    
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.rounded-button {
-    display: inline-block;
-    padding: 15px 300px;
-    background-color: #d7e1eb; 
-    color: #0a0900;
-    text-decoration: none;
-    border-radius: 20px; 
-    transition: background-color 0.3s ease;
-    margin: 20px;
-}
-.rounded-button:hover {
-    background-color: #ff5722;
-    color:#fff
-}
-div{
-    margin-bottom: 20px;
-    margin-top: 100px;
-}
-.small-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #d7e1eb; 
-    color: #0a0909;
-    text-decoration: none;
-    border-radius: 20px; 
-    transition: background-color 0.3s ease;
-    margin: 20px;
-    bottom:100px;
-    right:20px;
-    
-}
-
-.small-button:hover {
-    background-color: #ff5722;
-}
-/* Global styles */
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-}
-
-.container {
-    max-width: 1100px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-/* Header styles */
-#hero {
-    background-color: #333;
-    color: #fff;
-    padding: 100px 0;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background-color: #f0f0f0;
+    padding: 80px 0;
     text-align: center;
-}
-
-#hero h1 {
-    font-size: 3rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    color: #333;
     margin-bottom: 20px;
-}
-
-#hero span {
-    color: #ffca28; /* NBA yellow */
-}
-
-#hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.cta .btn {
+  }
+  
+  .hero-content h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 40px;
+  }
+  
+  .cta-button {
     display: inline-block;
     padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* About Us Section */
+  .about-us {
+    padding: 60px 0;
+  }
+  
+  .about-us p {
     font-size: 1.1rem;
-    text-decoration: none;
-    color: #fff;
-    background-color: #ff5722; /* NBA orange */
-    border-radius: 5px;
-}
-
-.cta .btn:hover {
-    background-color: #ff8a65; /* Lighter shade of NBA orange */
-}
-
-/* How It Works section */
-#how-it-works {
-    padding: 50px 0;
-}
-
-#how-it-works h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.steps {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.step {
-    flex: 0 1 calc(33.33% - 20px);
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    text-align: center;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* How It Works Section */
+  .how-it-works {
+    padding: 60px 0;
+  }
+  
+  .how-it-works ol {
+    list-style-type: decimal;
+  }
+  
+  .how-it-works ol li {
+    font-size: 1.1rem;
+    color: #333;
     margin-bottom: 20px;
-}
-
-.step h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-/* About Us section */
-#about-us {
-    background-color: #f5f5f5;
-    padding: 50px 0;
-}
-
-#about-us h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* Features section */
-#features {
-    padding: 50px 0;
-}
-
-#features h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.feature {
-    margin-bottom: 20px;
-}
-
-.feature h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-/* Testimonials section */
-#testimonials {
-    padding: 50px 0;
-}
-
-#testimonials h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.testimonial {
-    margin-bottom: 20px;
-}
-
-.testimonial blockquote {
-    padding: 20px;
-    background-color: #fff;
-    border-left: 5px solid #ff5722; /* NBA orange */
-    border-radius: 5px;
-}
-
-/* FAQ section */
-#faq {
-    background-color: #f5f5f5;
-    padding: 50px 0;
-}
-
-#faq h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.faq-item {
-    margin-bottom: 20px;
-}
-
-.faq-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-/* Call to Action section */
-#cta {
+  }
+  
+  /* Features Section */
+  .features {
+    padding: 60px 0;
+  }
+  
+  .features ul {
+    list-style-type: disc;
+  }
+  
+  .features ul li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Footer Section */
+  .footer {
     background-color: #333;
-    color: #fff;
-    padding: 50px 0;
-    text-align: center;
-}
-
-#cta h2 {
-    margin-bottom: 20px;
-}
-
-#cta .btn {
-    font-size: 1.2rem;
-}
-
-#cta .btn:hover {
-    background-color: #ff5722; /* NBA orange */
-}
-
-/* Footer section */
-#footer {
-    background-color: #222;
-    color: #fff;
     padding: 20px 0;
-    text-align: center;
-}
-
-#footer ul {
-    list-style: none;
-}
-
-#footer ul li {
-    display: inline;
-    margin-right: 10px;
-}
-
-#footer ul li:last-child {
-    margin-right: 0;
-}
-
-#footer ul li a {
     color: #fff;
-    text-decoration: none;
-}
-
-#footer ul li a:hover {
+    text-align: center;
+  }
+  
+  .footer p {
+    font-size: 1rem;
+  }
+  
+  .footer a {
+    color: #fff;
+  }
+  
+  .footer a:hover {
     text-decoration: underline;
-}
-
-
-
+  }
+  /* Hide the games section by default */
+  .hidden {
+    display: none;
+  }
 
 
