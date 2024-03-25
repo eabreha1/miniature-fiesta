@@ -35,12 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
       gameElement.innerHTML = `
         <h3>Game ${index + 1}</h3>
         <p><strong>Game ID:</strong> ${game.id}</p>
-        <p><strong>League:</strong> ${game.league}</p>
-        <p><strong>Season:</strong> ${game.season}</p>
         <p><strong>Date:</strong> ${game.date.start}</p>
-        <p><strong>Arena Name:</strong> ${game.arena.name}</p>
-        <p><strong>City:</strong> ${game.arena.city}</p>
-        <p><strong>State:</strong> ${game.arena.state}</p>
         <p><strong>Visitor Team:</strong> ${game.teams.visitors.name} (Score: ${game.scores.visitors.points})</p>
         <p><strong>Home Team:</strong> ${game.teams.home.name} (Score: ${game.scores.home.points})</p>
         <hr>
