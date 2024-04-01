@@ -1,8 +1,8 @@
 // Function to fetch NBA games data
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   // Function to fetch NBA games data
   async function fetchNbaGames() {
-    const url = 'https://api-nba-v1.p.rapidapi.com/games?date=2024-03-24';
+    const url = 'https://api-nba-v1.p.rapidapi.com/games?date=2024-04-01';
     const options = {
       method: 'GET',
       headers: {
@@ -34,25 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
       gameElement.classList.add('game');
       gameElement.innerHTML = `
         <h3>Game ${index + 1}</h3>
-        <p><strong>Game ID:</strong> ${game.id}</p>
-        <p><strong>League:</strong> ${game.league}</p>
-        <p><strong>Season:</strong> ${game.season}</p>
-        <p><strong>Date:</strong> ${game.date.start}</p>
-        <p><strong>Arena Name:</strong> ${game.arena.name}</p>
-        <p><strong>City:</strong> ${game.arena.city}</p>
-        <p><strong>State:</strong> ${game.arena.state}</p>
-        <p><strong>Visitor Team:</strong> ${game.teams.visitors.name} (Score: ${game.scores.visitors.points})</p>
-        <p><strong>Home Team:</strong> ${game.teams.home.name} (Score: ${game.scores.home.points})</p>
+        <p><strong>Visitor Team:</strong> ${game.teams.visitors.name} </p>
+        <p><strong>Home Team:</strong> ${game.teams.home.name} </p>
+        <p><strong> Prediction:</strong> </P>
         <hr>
       `;
       gamesList.appendChild(gameElement);
     });
   }
 
-  // Event listener for the "Discover Today's Games" button
-  const discoverGamesBtn = document.getElementById('discover-games-btn');
-  discoverGamesBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default form submission behavior
-    displayNbaGames(); // Fetch and display NBA games data
-  });
+  // Call the displayNbaGames function when the DOM content is loaded
+  displayNbaGames();
 });
+
