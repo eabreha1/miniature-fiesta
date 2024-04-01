@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', async function() {
   // Function to fetch NBA games data
   async function fetchNbaGames() {
-    const url = 'https://api-nba-v1.p.rapidapi.com/games?date=2024-03-31';
+    const url = 'https://api-nba-v1.p.rapidapi.com/games?date=2024-04-01';
     const options = {
       method: 'GET',
       headers: {
@@ -34,8 +34,9 @@ document.addEventListener('DOMContentLoaded', async function() {
       gameElement.classList.add('game');
       gameElement.innerHTML = `
         <h3>Game ${index + 1}</h3>
-        <p><strong>Visitor Team:</strong> ${game.teams.visitors.name} (Score: ${game.scores.visitors.points})</p>
-        <p><strong>Home Team:</strong> ${game.teams.home.name} (Score: ${game.scores.home.points})</p>
+        <p><strong>Visitor Team:</strong> ${game.teams.visitors.name} </p>
+        <p><strong>Home Team:</strong> ${game.teams.home.name} </p>
+        <p><strong> Prediction:</strong> </P>
         <hr>
       `;
       gamesList.appendChild(gameElement);
