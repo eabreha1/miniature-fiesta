@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
   <!-- Include Axios from CDN -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 </head>
 <body>
 
@@ -15,9 +14,18 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Welcome to <span>NBA Predictions</span></h1>
-            <p>The ultimate destination for fans seeking insightful, data-driven forecasts for upcoming NBA games.</p>
-            <p>Our platform is designed with user experience at its core, ensuring you navigate through our content with ease and precision.</p>
-      <a href="#" class="cta-button" id="discover-games-btn">Discover Today's Games</a>
+      <p>The ultimate destination for fans seeking insightful, data-driven forecasts for upcoming NBA games.</p>
+      <p>Our platform is designed with user experience at its core, ensuring you navigate through our content with ease and precision.</p>
+    </div>
+  </section>
+
+  <!-- Games List Section -->
+  <section class="games-list">
+    <div class="container">
+      <h2>Today's Games</h2>
+      <div class="games-grid" id="games-list">
+        <!-- Games will be dynamically added here -->
+      </div>
     </div>
   </section>
 
@@ -57,22 +65,11 @@
     </div>
   </section>
   
-  <!-- Games List Section -->
-  <section class="games-list">
-    <div class="container" id="games-list">
-      <!-- Games will be dynamically added here -->
-    </div>
-  </section>
-
-
   <!-- Footer Section -->
   <footer class="footer">
     <div class="container">
       <div class="contact">
         <p>Contact Us: For support, inquiries, or feedback, please reach out to us at <a href="mailto:contact@nbapredictions.com">contact@nbapredictions.com</a>.</p>
-      </div>
-      <div class="follow-us">
-        <p>Follow Us: Stay updated with the latest from NBA Predictions on <a href="#">Twitter</a> | <a href="#">Facebook</a> | <a href="#">Instagram</a>.</p>
       </div>
       <div class="legal">
         <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>

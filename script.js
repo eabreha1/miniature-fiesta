@@ -1,8 +1,8 @@
 // Function to fetch NBA games data
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   // Function to fetch NBA games data
   async function fetchNbaGames() {
-    const url = 'https://api-nba-v1.p.rapidapi.com/games?date=2024-03-25';
+    const url = 'https://api-nba-v1.p.rapidapi.com/games?date=2024-04-01';
     const options = {
       method: 'GET',
       headers: {
@@ -20,9 +20,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  //////////////////////////////////////
+  // Function to fetch and parse CSV data
+  async function fetchAndParseCSV() {
+    try {
+      const csvResponse = await fetch('https://raw.githubusercontent.com/NBA-Predictions/miniature-fiesta/main/dummyResults.csv');
+      const csvData = await csvResponse.text();
+      const rows = csvData.split('\n');
+      const headers = rows[0].split(',');
+      const data = [];
+
+      // Loop through rows starting from index 1 (to skip headers)
+      for (let i = 1; i < rows.length; i++) {
+        const rowData = rows[i].split(',');
+        const entry = {};
+
+        // Loop through each column in the row
+        for (let j = 0; j < headers.length; j++) {
+          entry[headers[j]] = rowData[j];
+        }
+
+        data.push(entry);
+      }
+      return data;
+    } catch (error) {
+      console.error('Error fetching or parsing CSV file:', error);
+    }
+  }
+  //////////////////////////////////////
+
+  //////////////////////////////////////
+  // Function to match team prediciton with cooresponding game
+  function matchPredictionToGame(game, csvData) {
+    for (let i = 0; i < csvData.length; i++) {
+      const team = csvData[i].HOME_TEAM_ID;
+      if (team === game.teams.home.nickname || team === game.teams.visitors.nickname) {
+        game["predictedWinner"] = team;
+        break;
+      }
+    }
+    return game;
+  }
+  //////////////////////////////////////
+
   // Function to display NBA games data on HTML page
   async function displayNbaGames() {
     const games = await fetchNbaGames(); // Fetch NBA games data
+    const csvData = await fetchAndParseCSV(); // Fetch and parse CSV data
     const gamesList = document.getElementById('games-list');
 
     // Clear previous content
@@ -30,23 +74,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create and append HTML elements for each game
     games.forEach((game, index) => {
+      const updatedGame = matchPredictionToGame(game, csvData);
       const gameElement = document.createElement('div');
       gameElement.classList.add('game');
       gameElement.innerHTML = `
         <h3>Game ${index + 1}</h3>
-        <p><strong>Date:</strong> ${game.date.start}</p>
-        <p><strong>Visitor Team:</strong> ${game.teams.visitors.name} (Score: ${game.scores.visitors.points})</p>
-        <p><strong>Home Team:</strong> ${game.teams.home.name} (Score: ${game.scores.home.points})</p>
+        <p><strong>Visitor Team:</strong> ${updatedGame.teams.visitors.name} </p>
+        <p><strong>Home Team:</strong> ${updatedGame.teams.home.name} </p>
+        <p><strong> Predicted Winner:</strong> ${updatedGame.predictedWinner}</P>
         <hr>
       `;
       gamesList.appendChild(gameElement);
     });
   }
 
-  // Event listener for the "Discover Today's Games" button
-  const discoverGamesBtn = document.getElementById('discover-games-btn');
-  discoverGamesBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default form submission behavior
-    displayNbaGames(); // Fetch and display NBA games data
-  });
+  // Call the displayNbaGames function when the DOM content is loaded
+  displayNbaGames();
 });
+
