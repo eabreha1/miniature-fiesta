@@ -20,13 +20,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
   }
 
-  //////////////////////////////////////
   // Function to fetch and parse CSV data
   async function fetchAndParseCSV() {
     try {
-      // const csvResponse = await fetch('https://raw.githubusercontent.com/NBA-Predictions/miniature-fiesta/main/dummyResults.csv');
-      const csvResponse = await fetch('https://raw.githubusercontent.com/ilanGibson/miniature-fiesta-ilan/main/dummyResults.csv');
+      // Fetch csv file from github repo
+      const csvResponse = await fetch('https://raw.githubusercontent.com/NBA-Predictions/miniature-fiesta/main/dummyResults.csv');
       const csvData = await csvResponse.text();
+      // Split CSV data into rows and columns
       const rows = csvData.split('\n');
       const headers = rows[0].split(',');
       const data = [];
@@ -48,27 +48,30 @@ document.addEventListener('DOMContentLoaded', async function() {
       console.error('Error fetching or parsing CSV file:', error);
     }
   }
-  //////////////////////////////////////
 
-  //////////////////////////////////////
+
   // Function to match team prediciton with cooresponding game
+  // Function only looks at prediction for home team
+  // If prediction is 1, home team is predicted winner
+  // Otherwise visitor team must be predicted winner
   function matchPredictionToGame(game, csvData) {
+    // Loop through CSV data
     for (let i = 0; i < csvData.length; i++) {
+      // Check if the team in the CSV data matches the home team of the game
       const team = csvData[i].HOME_TEAM_ID;
-      const temp = csvData[i].predictions;
+      // If the team matches, set the predicted winner of the game
       if (team === game.teams.home.nickname) {
+        // If the prediction is 1, the home team is the predicted winner
         if (parseInt(csvData[i].predictions) === 1) {
           game["predictedWinner"] = game.teams.home.nickname;
-          // console.log("HI");
+        // If the prediction is 0, the visitor team is the predicted winner
         } else {
           game["predictedWinner"] = game.teams.visitors.nickname;
         }
       }
     }
-    // console.log(game);
     return game;
   }
-  //////////////////////////////////////
 
   // Function to display NBA games data on HTML page
   async function displayNbaGames() {
