@@ -55,11 +55,17 @@ document.addEventListener('DOMContentLoaded', async function() {
   function matchPredictionToGame(game, csvData) {
     for (let i = 0; i < csvData.length; i++) {
       const team = csvData[i].HOME_TEAM_ID;
-      if (team === game.teams.home.nickname || team === game.teams.visitors.nickname) {
-        game["predictedWinner"] = team;
-        break;
+      const temp = csvData[i].predictions;
+      if (team === game.teams.home.nickname) {
+        if (parseInt(csvData[i].predictions) === 1) {
+          game["predictedWinner"] = game.teams.home.nickname;
+          // console.log("HI");
+        } else {
+          game["predictedWinner"] = game.teams.visitors.nickname;
+        }
       }
     }
+    // console.log(game);
     return game;
   }
   //////////////////////////////////////
