@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', async function() {
   // Function to fetch and parse CSV data
   async function fetchAndParseCSV() {
     try {
-      const csvResponse = await fetch('https://raw.githubusercontent.com/NBA-Predictions/miniature-fiesta/main/dummyResults.csv');
+      // const csvResponse = await fetch('https://raw.githubusercontent.com/NBA-Predictions/miniature-fiesta/main/dummyResults.csv');
+      const csvResponse = await fetch('https://raw.githubusercontent.com/ilanGibson/miniature-fiesta-ilan/main/dummyResults.csv');
       const csvData = await csvResponse.text();
       const rows = csvData.split('\n');
       const headers = rows[0].split(',');
