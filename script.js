@@ -1,7 +1,14 @@
+// Function to fetch NBA games data
 document.addEventListener('DOMContentLoaded', async function() {
   // Function to fetch NBA games data
   async function fetchNbaGames() {
-    const url = 'https://api-nba-v1.p.rapidapi.com/games?date=2024-04-03';
+    var currentDate = new Date();
+    var year = currentDate.getFullYear();
+    var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    var day = currentDate.getDate().toString().padStart(2, '0');
+    // const url = 'https://api-nba-v1.p.rapidapi.com/games?date=2024-04-01';
+    const url = 'https://api-nba-v1.p.rapidapi.com/games?date=' + year + '-' + month + '-' + day;
+    console.log(url);
     const options = {
       method: 'GET',
       headers: {
@@ -19,23 +26,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
   }
 
-  // Function to read CSV file and parse predictions
-  async function readCsvFile() {
-    const url = 'https://raw.githubusercontent.com/NBA-Predictions/miniature-fiesta/main/dummyResults.csv'; // Adjust the path to your CSV file
-    try {
-      const response = await fetch(url);
-      const text = await response.text();
-      const predictions = {};
-      text.split('\n').forEach(line => {
-        if (line.trim() !== '') { // Skip empty lines
-          const [team, prediction] = line.trim().split(',');
-          predictions[team.trim()] = prediction.trim();
-        }
-      });
-      return predictions;
-    } catch (error) {
-      console.error(error);
-    }
   // Function to fetch and parse CSV data
   async function fetchAndParseCSV() {
     try {
@@ -92,23 +82,19 @@ document.addEventListener('DOMContentLoaded', async function() {
   // Function to display NBA games data on HTML page
   async function displayNbaGames() {
     const games = await fetchNbaGames(); // Fetch NBA games data
-    const predictions = await readCsvFile(); // Read predictions from CSV
     const csvData = await fetchAndParseCSV(); // Fetch and parse CSV data
     const gamesList = document.getElementById('games-list');
 
     // Clear previous content
     gamesList.innerHTML = '';
 
+    // Create and append HTML elements for each game
     games.forEach((game, index) => {
       const updatedGame = matchPredictionToGame(game, csvData);
       const gameElement = document.createElement('div');
       gameElement.classList.add('game');
       gameElement.innerHTML = `
         <h3>Game ${index + 1}</h3>
-        <p><strong>Visitor Team:</strong> ${game.teams.visitors.name} </p>
-        <p><strong>Home Team:</strong> ${game.teams.home.name} </p>
-        <p><strong>Prediction for Home Team:</strong> ${predictions[game.teams.home.name]}</p>
-        <p><strong>Prediction for Visitor Team:</strong> ${predictions[game.teams.visitors.name]}</p>
         <p><strong>Visitor Team:</strong> ${updatedGame.teams.visitors.name} </p>
         <p><strong>Home Team:</strong> ${updatedGame.teams.home.name} </p>
         <p><strong> Predicted Winner:</strong> ${updatedGame.predictedWinner}</P>
@@ -122,7 +108,3 @@ document.addEventListener('DOMContentLoaded', async function() {
   displayNbaGames();
 });
 
-
-    
-  
-  
