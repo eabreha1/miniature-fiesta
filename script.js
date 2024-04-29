@@ -72,11 +72,15 @@ document.addEventListener('DOMContentLoaded', async function() {
       return game;
     }
     
+    // Function to construct the URL for a team logo based on the team name
     function getLogoUrl(teamName) {
+      // Convert team name to lowercase and replace spaces with hyphens
+      const formattedTeamName = teamName.toLowerCase().replace(/\s/g, '-');
       // Construct the URL for the logo using the formatted team name
-      return `miniature-fiesta/logos/${teamName.toLowerCase().replace(/\s/g, '-')}.png`;
+      return `miniature-fiesta/logos/${formattedTeamName}.png`;
     }
-    
+
+
 
  
     // Function to display NBA games data on HTML page
