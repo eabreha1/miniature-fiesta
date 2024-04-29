@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     function getLogoUrl(teamName) {
       // Construct the URL for the logo using the formatted team name
-      return `miniature-fiesta/logos/${teamName.toLowerCase().replace(/\s/g, '-')}.png`;
+      return 'Logos/${teamName}.png`;
     }
     
 
