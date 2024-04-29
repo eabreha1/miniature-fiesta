@@ -3,6 +3,10 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url('');
+  background-size: cover; /* Adjusts the size of the background image to cover the entire body */
+  background-position: center; /* Centers the background image */
+
 }
 
 .container {
@@ -13,20 +17,20 @@ body {
 
 /* Hero Section */
 .hero {
-  background-color: #f0f0f0;
+  background-color: #000000;
   padding: 80px 0;
   text-align: center;
 }
 
 .hero-content h1 {
   font-size: 2.5rem;
-  color: #333;
+  color: #FFFFFF;
   margin-bottom: 20px;
 }
 
 .hero-content h2 {
   font-size: 1.5rem;
-  color: #555;
+  color: #fff;
   margin-bottom: 40px;
 }
 
@@ -34,7 +38,7 @@ body {
   display: inline-block;
   padding: 10px 20px;
   background-color: #007bff;
-  color: #fff;
+  color: #555;
   text-decoration: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -43,6 +47,18 @@ body {
 .cta-button:hover {
   background-color: #0056b3;
 }
+
+nav {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  left: 10px; /* Adjust the left position as needed */
+}
+
+nav img {
+  width: 150px; /* Adjust the width of the logo as needed */
+}
+
+
 
 /* About Us Section */
 .about-us {
@@ -87,7 +103,7 @@ body {
 
 /* Footer Section */
 .footer {
-  background-color: #333;
+  background-color: #000000;
   padding: 20px 0;
   color: #fff;
   text-align: center;
