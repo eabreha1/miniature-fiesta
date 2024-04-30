@@ -77,7 +77,9 @@ document.addEventListener('DOMContentLoaded', async function() {
       // Convert team name to lowercase and replace spaces with hyphens
       const formattedTeamName = teamName.toLowerCase().replace(/\s/g, '-');
       // Construct the URL for the logo using the formatted team name
-      return `miniature-fiesta/logos/${formattedTeamName}.png`;
+      // return `miniature-fiesta/logos/${formattedTeamName}.png`;
+
+      return 'https://raw.githubusercontent.com/NBA-Predictions/miniature-fiesta/main/Logos/' + formattedTeamName + '.png';
     }
 
 
